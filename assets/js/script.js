@@ -33,7 +33,6 @@ var loadTasks = function() {
 
   // loop over object properties
   $.each(tasks, function(list, arr) {
-    console.log(list, arr);
     // then loop over sub-array
     arr.forEach(function(task) {
       createTask(task.text, task.date, list);
@@ -41,11 +40,17 @@ var loadTasks = function() {
   });
 };
 
+
+// The saveTasks() function simply saves the tasks object in localStorage, as we can see here:
 var saveTasks = function() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 };
 
-
+$(".list-group").on("click", "p", function() {
+  var text = $(this)
+    .text()
+    .trim();
+});
 
 
 // modal was triggered
