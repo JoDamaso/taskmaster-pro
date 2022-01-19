@@ -71,11 +71,13 @@ var status = $(this)
   .closest(".list-group")
   .attr("id")
   .replace("list-", "");
+  status = parseInt(status);
 
 // get the task's position in the list of other li elements
 var index = $(this)
   .closest(".list-group-item")
   .index();
+  index = parseInt(index);
 
   tasks[status][index].text = text;
   saveTasks();
