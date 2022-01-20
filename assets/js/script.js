@@ -46,19 +46,6 @@ var saveTasks = function() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 };
 
-// EVENT LISTENER .on 
-//jQuery - targets parent, clicks on p element, creates new <textarea>
-$(".list-group").on("click", "p", function() {
-  var text = $(this)
-    .text()
-    .trim();
-  var textInput = $("<textarea>")
-    .addClass("form-control")
-    .val(text);
-    $(this).replaceWith(textInput);
-    textInput.trigger("focus");
-});
-
 
 // modal was triggered
 $("#task-form-modal").on("show.bs.modal", function() {
@@ -92,6 +79,19 @@ $("#task-form-modal .btn-primary").click(function() {
 
     saveTasks();
   }
+});
+
+// EVENT LISTENER .on 
+//jQuery - targets parent, clicks on p element, creates new <textarea>
+$(".list-group").on("click", "p", function() {
+  var text = $(this)
+    .text()
+    .trim();
+  var textInput = $("<textarea>")
+    .addClass("form-control")
+    .val(text);
+    $(this).replaceWith(textInput);
+    textInput.trigger("focus");
 });
 
 //This blur event will trigger as soon as the user interacts with anything other than the <textarea> element.
